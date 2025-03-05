@@ -30,3 +30,8 @@ filter - filter element
 In JavaScript, "synchronous" means code executes in a sequential order, where one task must finish before the next one can start, while 
 "asynchronous" allows multiple tasks to run seemingly simultaneously
 
+
+to avoid callback hell = promis and async/await used
+
+api - https://cricket.sportmonks.com/api/v2.0/players?api_token=K9TG9hHW8d8oWwXq3mJtb7afSJUNTKZvwa1FRqDtlC0aYS9VK8hzly6d85LU
+
