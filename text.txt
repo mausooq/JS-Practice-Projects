@@ -1,0 +1,32 @@
+js
+-  getElementById() = to get id of html
+- innerHTML() = to insert element 
+- .src = change html attribute 
+- .style.(css code) = change css
+
+Writing into an HTML element, using innerHTML or innerText.
+Writing into the HTML output using document.write().
+Writing into an alert box, using window.alert().
+Writing into the browser console, using console.log().
+
+var	- Declares a variable
+let- 	Declares a block variable
+const	- Declares a block constant
+if	- Marks a block of statements to be executed on a condition
+switch	- Marks a block of statements to be executed in different cases
+for	- Marks a block of statements to be executed in a loop
+function -	Declares a function
+return -	Exits a function
+try	- Implements error handling to a block of statements
+
+callback - a function that is passed as argument to another function
+
+forEach - method is to iterate through array abd apply for function(callback)
+
+map() - accept the callback func and applies to the each ele of array and return new array
+
+filter - filter element
+
+In JavaScript, "synchronous" means code executes in a sequential order, where one task must finish before the next one can start, while 
+"asynchronous" allows multiple tasks to run seemingly simultaneously
+

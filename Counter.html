@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: white;
+        }
+        .cnt {
+            margin-top: 20px;
+        }
+        button {
+            padding: 12px 20px;
+            margin: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        #inc {
+            background-color: #28a745;
+            color: white;
+        }
+        #inc:hover {
+            background-color: #218838;
+        }
+        #dec {
+            background-color: #dc3545;
+            color: white;
+        }
+        #dec:hover {
+            background-color: #c82333;
+        }
+        #reset {
+            background-color: #007bff;
+            color: white;
+        }
+        #reset:hover {
+            background-color: #0056b3;
+        }
+        label {
+            font-size: 48px;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.589);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            min-width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <label id="cntlabel">0</label>
+    <br>
+    <div class="cnt">
+        <button id="inc">+</button>
+        <button id="reset">Clear</button>
+        <button id="dec">-</button>
+    </div>
+    <script>
+        let count = 0;
+        let cntlabel = document.getElementById("cntlabel");
+        let inc = document.getElementById("inc");
+        let dec = document.getElementById("dec");
+        let reset = document.getElementById("reset");
+        
+        inc.addEventListener("click", () => {
+            count++;
+            cntlabel.innerText = count;
+        });
+        
+        dec.addEventListener("click", () => {
+            count--;
+            cntlabel.innerText = count;
+        });
+
+        reset.addEventListener("click", () => {
+            count = 0;
+            cntlabel.innerText = count;
+        });
+    </script>
+</body>
+</html>

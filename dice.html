@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Roll</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: black;
+        }
+        h1 {
+            font-size: 2.5em;
+        }
+        .dice {
+            font-size: 5em;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            min-width: 100px;
+            transition: transform 0.2s ease-in-out;
+        }
+        button {
+            padding: 12px 20px;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            background: #4CAF50;
+            color: white;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Roll the Dice</h1>
+    <div id="dice" class="dice">🎲</div>
+    <button id="roll">Roll</button>
+    
+    <script>
+        const roll = document.getElementById("roll");
+        const diceLabel = document.getElementById("dice");
+        const diceFaces = ["🎲", "⚀", "⚁", "⚂", "⚃", "⚄", "⚅"];
+
+        roll.addEventListener("click", () => {
+            let random = Math.floor(Math.random() * 6) + 1;
+            diceLabel.style.transform = "rotate(360deg)";
+            setTimeout(() => {
+                diceLabel.innerText = diceFaces[random];
+                diceLabel.style.transform = "rotate(0deg)";
+            }, 200);
+        });
+    </script>
+</body>
+</html>

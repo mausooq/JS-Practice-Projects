@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: white;
+            text-align: center;
+        }
+        .clock {
+            font-size: 5em;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 20px 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .toggle-button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: white;
+            background: #ff6f61;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .toggle-button:hover {
+            background: #ff3b30;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock-container">
+        <div id="clock" class="clock">00:00:00</div>
+        <button id="toggleFormat" class="toggle-button">Switch to 12-Hour Format</button>
+    </div>
+
+    <script>
+        let is24Hour = true;
+
+        function updateClock() {
+            const clock = document.getElementById('clock');
+            let time = new Date();
+            
+            let hours = time.getHours();
+            let minutes = time.getMinutes();
+            let seconds = time.getSeconds();
+            let amPm = '';
+            
+            if (!is24Hour) {
+                amPm = hours >= 12 ? 'PM' : 'AM';
+                hours = hours % 12 || 12; 
+            }
+            
+            hours = String(hours).padStart(2, '0');
+            minutes = String(minutes).padStart(2, '0');
+            seconds = String(seconds).padStart(2, '0');
+
+            clock.innerHTML = `${hours}:${minutes}:${seconds} ${amPm}`.trim();
+        }
+
+        document.getElementById('toggleFormat').addEventListener('click', function() {
+            is24Hour = !is24Hour;
+            this.textContent = is24Hour ? 'Switch to 12-Hour Format' : 'Switch to 24-Hour Format';
+            updateClock();
+        });
+
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+</body>
+</html>

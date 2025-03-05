@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        h1 {
+            font-size: 2em;
+        }
+        #time {
+            font-size: 2.5em;
+            margin: 20px 0;
+        }
+        button {
+            font-size: 1.2em;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        #start {
+            background-color: green;
+            color: white;
+        }
+        #stop {
+            background-color: red;
+            color: white;
+        }
+        #reset {
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stop Watch</h1>
+    <button id="start" onclick=start()>Start</button>
+    <button id="stop" onclick=stop()>Stop</button>
+    <button id="reset" onclick=reset()>Reset</button>
+    <p id="time">00:00:00:00</p>
+
+    <script>
+        const time = document.getElementById('time');
+        let timer= null;
+        let startTime = 0;
+        let running = false;
+        let elapsedTime = 0;
+
+        function start(){
+            if(!running){
+                running = true;
+                startTime = Date.now() - elapsedTime; 
+                timer = setInterval(updateClock,10);
+                console.log(timer);   
+            }
+        }
+        function stop(){
+            if(running){
+                running = false;
+                clearInterval(timer);
+            }
+
+        }
+        function updateClock(){
+            const currentTime = Date.now();
+            elapsedTime = currentTime - startTime;
+            let hours = Math.floor(elapsedTime / 3600000);
+            let min = Math.floor((elapsedTime % 3600000)/60000);
+            let sec = Math.floor((elapsedTime %60000) / 1000);
+            let ms = Math.floor((elapsedTime % 1000) / 10)
+            console.log(hours , min , sec , ms);
+            
+            time.innerHTML = `${String(hours).padStart(2,0)}:${String(min).padStart(2,0)}:${String(sec).padStart(2,0)}:${String(ms).padStart(2,0)}`;
+
+        }
+        function reset(){
+            stop();
+            elapsedTime = 0;
+            time.innerHTML="00:00:00:00";
+        }
+
+    </script>
+</body>
+</html>
